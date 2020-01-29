@@ -9,7 +9,7 @@ int main()
 	
 	int num = 5;
 
-	square_num(num);
+	
 
 	cout << square_number(num);
 
