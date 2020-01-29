@@ -1,11 +1,17 @@
-#include "output.h"
-#include <iostream>
-using std::cout;
+#include"vars.h"// use file i created 
+
+
 
 
 int main() 
 {
-	cout<<"Hello World">>;
+    display_number(5);
+	
+	int num = 5;
+
+	square_num(num);
+
+	cout << square_number(num);
 
 	return 0;
 }
