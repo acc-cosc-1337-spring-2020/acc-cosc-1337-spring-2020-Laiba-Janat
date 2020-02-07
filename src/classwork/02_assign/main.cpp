@@ -31,7 +31,7 @@ int main()
 	//Create a double variable named gross_salary
 	double gross_salary;
 	//Call the gross_pay function and save its return value to the gross_salary variable
-	double Gross_Pay(double hours, double hourly_rate);
+	 gross_salary = Gross_Pay( hours, hourly_rate);
 
 	//Display the gross_salary variable as follows:
 	cout << " Gross Pay: " << gross_salary;
