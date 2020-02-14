@@ -5,12 +5,12 @@ using std::cout; using std::cin;
 
 int main() 
 {
-	include num;
+	//include num;
 	
 	cout << "Enter a number: ";
-	cin << num;
+	//cin << num;
 	
-	dispay_numbers(num);
+//	dispay_numbers(num);
 	
 	return 0;
 }
