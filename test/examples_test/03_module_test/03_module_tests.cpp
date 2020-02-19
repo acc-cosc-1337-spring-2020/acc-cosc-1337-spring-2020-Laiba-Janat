@@ -68,7 +68,7 @@ TEST_CASE("Test for ranged loop w auto by ref")
 
 	loop_w_vector_auto(nums);
 
-	REQUIRE(nums == expeccted);
+	REQUIRE(nums == expected);
 
 }
 

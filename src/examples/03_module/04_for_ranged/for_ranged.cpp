@@ -18,7 +18,8 @@ t
 
 void loop_string_w_index(const std::string & str) {
 	
-	for (int i=0 ; i < str.length(); ++i); {
+	for (int i=0 ; i < str.length(); ++i)
+	{
 
 		std::cout << str[i] << "\n";
 	}
