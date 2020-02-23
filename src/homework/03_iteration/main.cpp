@@ -37,7 +37,7 @@ int main()
 
 			cin >> dna;
 
-			double gcdna_cont = get_gc_content(const std::string &dna);
+			double gcdna_cont = get_gc_content(dna);
 
 			cout << "The GC content of the DNA string is: " << gcdna_cont;
 		}
@@ -51,9 +51,9 @@ int main()
 
 			cin >> dna;
 
-			std::string dna_rev = get_reversedna(std::string dna);
+			std::string dna_rev = get_reversedna(dna);
 
-			cout << "The Reverse of the DNA string is: " << std::string dna_rev;
+			cout << "The Reverse of the DNA string is: " << dna_rev;
 
 		}
 		else if (choice == 3) {
@@ -66,15 +66,15 @@ int main()
 
 			cin >> dna;
 
-			std::string dna_revcomp = get_reversecomp_of_dna(std::string dna);
+			std::string dna_revcomp = get_reversecomp_of_dna(dna);
 
-			cout << "The Reverse Complement of the DNA string is: " << std::string dna_rev;
+			cout << "The Reverse Complement of the DNA string is: " << dna_revcomp;
 
 		}
 		else {
 
 			cout << " Incorrect Choice ";
-			cout << " Please Choose one from the Menu"
+			cout << " Please Choose one from the Menu";
 		}
 		cout << "Press Y or y to continue";
 		cin >> menu;
@@ -82,9 +82,7 @@ int main()
 	
 	}
 	
-	while (menu == 'Y' || menu == 'y') {
-		
-		}
+	while (menu == 'Y' || menu == 'y');
 
 	return 0;
 }

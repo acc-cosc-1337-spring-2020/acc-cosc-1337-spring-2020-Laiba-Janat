@@ -1,4 +1,5 @@
 #include "dna.h"
+using std::string;
 /*
 Write code for function get_gc_content that accepts
 a const reference string parameter and returns a double.
@@ -10,28 +11,23 @@ Return quotient.
 double get_gc_content(const string & dna)
 {
 	int ct_count = 0;
-	int ag_count = 0;
-	int total;
+	
+	double total;
 	double gc_cont;
-	for (int i = 0;  i < gc_dna.size(); i++) {
+	for (int i = 0;  i < dna.size(); i++) {
 
 		if (dna[i] == 'C' || dna[i] == 'T') {
 
 			ct_count++;
 
 		}
-		else {
-			
-			ag_count++;
-
-		}
 
 	}
-	total = ct_count + ag_count;
-	gc_cont = (ct_count / total) * 100;
+	total = ct_count;
+	gc_cont = total / dna.size();
 
 
-	return double(gc_cont);
+	return gc_cont;
 }
 
 
@@ -46,12 +42,12 @@ std::string get_reversedna(std::string dna)
 {
 	std::string rev_dna;
 
-	for (int i = dna.size(); i > 0; i--) {
+	for (int i = dna.size(); i >= 0; i--) {
 		
-		std::string rev_dna += dna[i];
+		rev_dna += dna[i];
 	}
 
-	return std::string(std::string rev_dna);
+	return rev_dna;
 }
 
 
@@ -71,29 +67,28 @@ c. return string
 */
 std::string get_reversecomp_of_dna(std::string dna)
 {
-	std::string dna_rev = std::string get_reversedna(std::string dna);
-	std::string dna_rev_comp;
+	std::string dna_rev = get_reversedna(dna);
 	
-	for (int i = dna_rev.size(); i >= 0; i--) {
+	for (int i = 0; i < dna_rev.size(); ++i) {
 	
 		if (dna_rev[i] == 'C') {
 
-			dna_rev_comp += 'G';
+			dna_rev[i] = 'G';
 
 		}
 		else if (dna_rev[i] == 'G') {
 			
-			dna_rev_comp += 'C';
+			dna_rev[i] = 'C';
 
 		}
 		else if (dna_rev[i] == 'T') {
 
-			dna_rev_comp += 'A';
+			dna_rev[i] = 'A';
 
 		}
 		else if (dna_rev[i] == 'A') {
 			
-			dna_rev_comp += 'T';
+			dna_rev[i] = 'T';
 
 		}
 	
@@ -102,6 +97,6 @@ std::string get_reversecomp_of_dna(std::string dna)
 
 	
 
-	return std::string(std::string dna_rev_com);
+	return dna_rev;
 }
 
