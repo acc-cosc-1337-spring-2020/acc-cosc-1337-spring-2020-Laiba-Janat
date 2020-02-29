@@ -10,21 +10,21 @@ vector of intsparameter that returns the max value in a vector
 @return the max value in the vector
 */
 
-int get_max_from_vector(const std::vector<int>& nums)
+int get_max_from_vector(const std::vector<int>& numbers)
 {
 	int max = 0;
 
-	for (int i = 0; i < nums.size(); i++) {
+	for (int i = 0; i < numbers.size(); i++) {
 
 		if (i == 0) 
 		{
-			max == nums[0];
+			max == numbers[0];
 		}
 		else 
 		{
-			if (nums[i]> max)
+			if (numbers[i]> max)
 			{
-				max = nums[i];
+				max = numbers[i];
 			}
 		}
 

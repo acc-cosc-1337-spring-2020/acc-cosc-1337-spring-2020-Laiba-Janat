@@ -25,9 +25,9 @@ int main()
 
 		int choice;
 
-		cout << "   MENU   ";
-		cout << "1.Press 1 to get Max number";
-		cout << "2.Press 2 to get a Vector of Prime Numbers upto and Including your number";
+		cout << "   MENU   " << "\n";
+		cout << "1.Press 1 to get Max number" << "\n";
+		cout << "2.Press 2 to get a Vector of Prime Numbers upto and Including your number" << "\n";
 		
 		cin >> choice;
 		if (choice == 1) {
@@ -38,7 +38,7 @@ int main()
 			
 			std::vector<int>numbers;
 
-			cout << "Enter Your Numbers: ";
+			cout << "Enter Your Numbers: " << "\n";
 
 
 			while (cin >> nums) 
@@ -49,16 +49,16 @@ int main()
 
 			max_number = get_max_from_vector(numbers);
 
-			cout << "The Max number is: " << max_number;
+			cout << "The Max number is: " << "\n" << max_number;
 		}
 		else if (choice == 2) {
 
 
 			int num;
 
-			int onlyprimes;
+			std::vector<int> onlyprimes;
 
-			cout << "Enter Your Number: ";
+			cout << "Enter Your Number: " << "\n";
 
 			cin >> num;
 
@@ -67,13 +67,19 @@ int main()
 
 
 			 
-			cout << " The  primes uptill and including your number are: " << onlyprimes ;
+			cout << " The  primes uptill and including your number are: " << "\n";
+				
+			for (int i = 0; i < onlyprimes.size(); ++i)
+			{
+				std::cout << onlyprimes[i] << "\n";
+
+			}
 
 		}
 		else {
 
-			cout << " Incorrect Choice ";
-			cout << " Please Choose one from the Menu";
+			cout << " Incorrect Choice " << "\n";
+			cout << " Please Choose one from the Menu" << "\n";
 		}
 		cout << "Press Y or y to continue";
 		cin >> menu;

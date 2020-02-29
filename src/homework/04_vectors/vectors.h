@@ -10,7 +10,7 @@ const reference vector of ints parameter that returns an int
 @param numbers is a const reference to a vector of integers
 @return the max value in the vector
 */
-int get_max_from_vector(const std::vector<int>& nums);
+int get_max_from_vector(const std::vector<int>& numbers);
 
 
 
@@ -34,4 +34,4 @@ the number
 @return vector of ints containing prime values up to a value
 */
 
-int vector_of_primes(int num);
+std::vector<int> vector_of_primes(int num);
