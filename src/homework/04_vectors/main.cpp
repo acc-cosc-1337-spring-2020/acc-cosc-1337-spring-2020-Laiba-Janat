@@ -56,7 +56,7 @@ int main()
 
 			int num;
 
-			std::vector<int>onlyprimes;
+			int onlyprimes;
 
 			cout << "Enter Your Number: ";
 
