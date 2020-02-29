@@ -1,3 +1,7 @@
+#include "vectors.h"
+#include <vector>
+
+
 /*
 Write a value return function get_max_from_vector with a const reference 
 vector of intsparameter that returns the max value in a vector
@@ -5,6 +9,28 @@ vector of intsparameter that returns the max value in a vector
 @param numbers is a const reference to a vector of integers
 @return the max value in the vector
 */
+
+int get_max_from_vector(const std::vector<int>& nums)
+{
+	int max = 0;
+
+	for (int i = 0; i < nums.size(); i++) {
+
+		if (i == 0) 
+		{
+			max == nums[0];
+		}
+		else 
+		{
+			if (nums[i]> max)
+			{
+				max = nums[i];
+			}
+		}
+
+	}
+	return max;
+}
 
 
 
@@ -15,6 +41,30 @@ given a number returns true if prime or false if not prime
 @param number: Any whole number
 @return: bool if prime False if not
 */
+
+bool is_prime(int i)
+{
+	int j = 1;
+	
+	int n = i;
+	while( j < n)
+	{
+		if (n == 2)
+		{
+		n = true;
+		}
+		else if (n%2 == 0)
+		{
+			n = false;
+		}
+		else
+		{
+			n = true;
+		}
+	}
+	return n;
+}
+
 
 /*
 Write a a function named vector_of_primes with an integer parameter
@@ -28,3 +78,26 @@ Example given number 10 returns a vector with elements 2,3,5,7,
 Make sure to use the is_prime function to determine if current 
 number is prime.
 */
+
+
+std::vector<int>vector_of_primes(int num)
+{
+	bool p;
+
+	std::vector<int>primes;
+	
+	for (int i = 1 ; i <= num; i++) 
+	{
+		p = is_prime(i);
+		if (p == true)
+		{
+			primes.push_back(i);
+		}
+		
+	
+	
+	}
+
+	
+	return primes;
+}
