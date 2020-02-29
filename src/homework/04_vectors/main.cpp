@@ -44,14 +44,16 @@ int main()
 			
 			// i want to get user numbers saved to vector and keep 
 			//getting no's till user de but cant accomplish this correctly :(
+			auto add_more = 'n';
 			do 
 			{
-				cout << "press x when done; " << "\n";
+				cout << "Enter number: " << "\n";
 				cin >> nums;
 				numbers.push_back(nums);
-
+				cout << "Add another number y?";
+				cin >> add_more;
 			} 
-			while (nums != 'x' );
+			while (add_more == 'y' );
 			
 			
 
