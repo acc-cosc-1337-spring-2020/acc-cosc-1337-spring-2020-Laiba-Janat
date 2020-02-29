@@ -31,21 +31,29 @@ int main()
 		
 		cin >> choice;
 		if (choice == 1) {
-
+			
+			auto d = 'x';
 			int nums;
 
 			int max_number;
 			
-			std::vector<int>numbers;
+			std::vector<int>numbers = { 8, 4, 20, 88, 66, 99 };
 
 			cout << "Enter Your Numbers: " << "\n";
 
-
-			while (cin >> nums) 
+			
+			// i want to get user numbers saved to vector and keep 
+			//getting no's till user de but cant accomplish this correctly :(
+			do 
 			{
+				cout << "press x when done; " << "\n";
+				cin >> nums;
 				numbers.push_back(nums);
 
-			}
+			} 
+			while (nums != 'x' );
+			
+			
 
 			max_number = get_max_from_vector(numbers);
 
@@ -81,7 +89,8 @@ int main()
 			cout << " Incorrect Choice " << "\n";
 			cout << " Please Choose one from the Menu" << "\n";
 		}
-		cout << "Press Y or y to continue";
+		cout << "Press Y or y to continue" << "\n";
+
 		cin >> menu;
 
 

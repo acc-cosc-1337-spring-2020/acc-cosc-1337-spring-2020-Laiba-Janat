@@ -44,7 +44,7 @@ given a number returns true if prime or false if not prime
 
 bool is_prime(int i)
 {
-	int j = 1;
+	int j = 2;
 	
 	int n = i;
 	while( j < n)
@@ -86,7 +86,7 @@ std::vector<int>vector_of_primes(int num)
 
 	std::vector<int>primes;
 	
-	for (int i = 1 ; i <= num; i++) 
+	for (int i = 2 ; i <= num; i++) 
 	{
 		p = is_prime(i);
 		if (p == true)
