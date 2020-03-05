@@ -42,25 +42,24 @@ given a number returns true if prime or false if not prime
 @return: bool if prime False if not
 */
 
-bool is_prime(int i)
+bool is_prime(int num)
 {
+	if (num == 1 || num == 2) 
+	{
+		return true;
+	}
+
 	int j = 2;
 	
-	int n = i;
-	while( j < n)
+	bool n{ true };
+	while( j < num)
 	{
-		if (n == 2)
-		{
-		n = true;
-		}
-		else if (n%2 == 0)
+		if (num%j == 0)
 		{
 			n = false;
+			return n;
 		}
-		else
-		{
-			n = true;
-		}
+		j++;
 	}
 	return n;
 }
