@@ -45,5 +45,10 @@ TEST_CASE("Test Bank account withdraw") {
 	REQUIRE(account.get_balance() == 450);
 
 }
+TEST_CASE("Test Bank account static rate initialization") {
 
+	BankAccount account;
+	
+	REQUIRE(account.get_rate)() == 0.025);
 
+}

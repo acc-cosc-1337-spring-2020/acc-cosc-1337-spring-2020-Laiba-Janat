@@ -4,12 +4,15 @@ has one public function area that returns the area of the rectangle, and one pri
 that calculates area of the rectangle.  The class has 3 int private variables area, width, and height.
 */
 
+#include<iostream>
+
 class Rect
 {
 
 public:
 	Rect(int h, int w) : height{ h }, width{ w } {calculate_area();}
 	int get_Area() const { return Area; }
+	friend std::ostream& operator<<(std::ostream& out, const Rect& r);
 	
 
 

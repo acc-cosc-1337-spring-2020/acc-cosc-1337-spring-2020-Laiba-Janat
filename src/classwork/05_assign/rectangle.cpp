@@ -16,5 +16,16 @@ void Rect::calculate_area()
 	
 }
 
+std::ostream & operator<<(std::ostream & out, const Rect & r)
+{
+	// TODO: insert return statement here
+
+
+	out << " The area is: " << r.Area << "\n";
+
+	return out;
+
+}
+
 
 
