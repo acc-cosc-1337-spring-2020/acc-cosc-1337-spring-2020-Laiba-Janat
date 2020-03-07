@@ -18,7 +18,7 @@ class TicTacToe
 
 public:
 	void start_game(std:: string first_player);
-	std::string const get_player() ;//{ return player; }
+	std::string const get_player(){ return player; }
 	void mark_board(int position);
 	
 	

@@ -23,7 +23,7 @@ void TicTacToe::start_game(std:: string first_player)
 
 }
 
-std::string TicTacToe::get_player() const
+std::string TicTacToe::get_player()  // dont understand whats wrong here
 {
 	return std::string();
 }

@@ -49,6 +49,6 @@ TEST_CASE("Test Bank account static rate initialization") {
 
 	BankAccount account;
 	
-	REQUIRE(account.get_rate)() == 0.025);
+	REQUIRE(account.get_rate()) == 0.025);
 
 }
