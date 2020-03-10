@@ -4,16 +4,11 @@
 void TicTacToe::start_game(std:: string first_player)
 {
 	
-	if (first_player == "X" || first_player == " O ") 
+	if (first_player == "X" || first_player == "O") 
 	{
 		
 		player = first_player ;
 
-	}
-	else if (first_player == " ")
-	{
-		
-		throw Error("Player Must Start Game first: ");
 	}
 	else
 	{
@@ -21,11 +16,6 @@ void TicTacToe::start_game(std:: string first_player)
 	}
 
 
-}
-
-std::string TicTacToe::get_player()  // dont understand whats wrong here
-{
-	return std::string();
 }
 
 void TicTacToe::mark_board(int position)
@@ -38,6 +28,11 @@ void TicTacToe::mark_board(int position)
 
 	}
 	
+	if (player == "") 
+	{
+		throw Error("Must start game first.");
+	}
+
 	set_next_player();
 	
 	

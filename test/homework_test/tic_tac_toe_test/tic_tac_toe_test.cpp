@@ -17,7 +17,7 @@ TEST_CASE("Test can't call mark.board before start game")
 TEST_CASE("Test start game accepts only X or O")
 {
 	TicTacToe game;
-	REQUIRE_THROWS_AS(game.start_game() != "X" || game.start_game() != "O", Error);//cant figure out how to fix this
+	REQUIRE_THROWS_AS(game.start_game("A"), Error);
 	
 
 }
@@ -25,7 +25,7 @@ TEST_CASE("Test set first player to X")
 {
 	TicTacToe game;
 	game.start_game("X");
-	REQUIRE(game.get_player == "X");
+	REQUIRE(game.get_player() == "X");
 
 }
 

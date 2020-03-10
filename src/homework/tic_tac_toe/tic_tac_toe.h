@@ -24,7 +24,7 @@ public:
 	
 private:
 	void set_next_player();
-	std:: string player{ 0 };
+	std:: string player;
 	
 };
 
