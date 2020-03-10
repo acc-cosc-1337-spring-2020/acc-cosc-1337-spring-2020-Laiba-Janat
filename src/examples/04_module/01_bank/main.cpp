@@ -1,6 +1,7 @@
-#include "bank_account.h"
+#include "checking_account.h"
 #include<iostream>
 #include<vector>
+#include <string>
 
 
 
@@ -9,7 +10,8 @@ using std::cout; using std::cin;
 
 int main()
 {
-	
+	CheckingAccount checking;
+	CheckingAccount checking1(90);
 	
 	BankAccount account(500);
 	cin >> account;
