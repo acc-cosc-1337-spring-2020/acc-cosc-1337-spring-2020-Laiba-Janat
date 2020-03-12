@@ -71,7 +71,7 @@ TEST_CASE("Test game ends when board is full")
 	TicTacToe game;
 	game.start_game("X");
 
-	for (std::size_t i = 0; i < 9; ++i)
+	for (std::size_t i = 1; i < 9; ++i)
 	{
 
 		game.mark_board(i);

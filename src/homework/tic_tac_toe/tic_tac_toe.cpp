@@ -40,7 +40,7 @@ void TicTacToe::mark_board(int position)
 	}
 
 
-	pegs[position - 1] = player;
+	pegs[position - 1] = position;
 	set_next_player();
 	
 	
@@ -81,6 +81,8 @@ bool TicTacToe::check_board_full()
 		}
 		
 	}
+
+	return true;
 
 }
 
