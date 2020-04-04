@@ -8,10 +8,14 @@ bool TicTacToe::game_over()
 {
 	if (check_column_win()==true|| check_row_win() == true || check_diagonal_win() == true)
 	{
+		set_winner();
+		return true;
+
 	}
 	else if(check_board_full()==true)
 	{
 		winner='C';
+		return true;
 	}
 	//else
 	//{
@@ -19,7 +23,7 @@ bool TicTacToe::game_over()
 	//}
 		
 
-	return check_board_full();
+	//return check_board_full();
 }
 
 void TicTacToe::start_game(std:: string first_player)
@@ -53,7 +57,7 @@ void TicTacToe::mark_board(int position)
 	}
 
 
-	pegs[position - 1] = position;
+	pegs[position - 1] = player;
 	set_next_player();
 	
 	
@@ -64,7 +68,7 @@ void TicTacToe::display_board() const
 {
 	for (int i = 0; i < 9; i += 3)
 	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 1] << "|" << "\n";
+		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "|" << "\n";
 	}
 }
 
