@@ -17,10 +17,10 @@ bool TicTacToe::game_over()
 		winner='C';
 		return true;
 	}
-	//else
-	//{
-	return false;
-	//}
+	else
+	{
+		return false;
+	}
 		
 
 	//return check_board_full();
