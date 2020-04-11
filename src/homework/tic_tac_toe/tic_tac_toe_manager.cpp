@@ -34,6 +34,7 @@ void TicTacToeManager::update_winner_count(std::string winner)
 		tie++;
 
 	}
+
 }
 
 std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
