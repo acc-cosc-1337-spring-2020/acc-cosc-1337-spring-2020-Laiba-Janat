@@ -45,7 +45,7 @@ int main()
 					game.mark_board(position);
 					//ostream;
 					//game.display_board();*/
-					winner = game.game_over();
+			winner = game.game_over();
 			
 				
 				//cout << "Press p or P to continue to another turn";
@@ -55,11 +55,12 @@ int main()
 		manager.save_game(game);
 		cout << game;
 		manager.get_winner_total(x, o, t);
-		cout << "The winner is: " << game.get_winner() << "\n";
+		cout << "The winner is player " << game.get_winner() << "\n";
 		
 	//} while (choice == "P" || choice == "p");
 		cout << "Press Y or y to continue to another game " << "\n";
 		cin >> option;
+		cout << "\n";
 	}while (option == 'Y' || option == 'y');
 
 	cout << manager;
