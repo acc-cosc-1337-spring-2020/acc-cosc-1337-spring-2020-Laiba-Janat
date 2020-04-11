@@ -1,4 +1,5 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 
 using std::cout; using std::cin;
@@ -10,8 +11,14 @@ int main()
 	auto option = 'Y';
 	//std::string choice = "p";
 	bool winner;
+	int x;
+	int o;
+	int t;
+
 
 	TicTacToe game;
+	
+	TicTacToeManager manager;
 
 	do {
 
@@ -30,31 +37,35 @@ int main()
 
 		}
 		do {
-			
-			try
-				{
-					int position;
-					cout << "Mark the position 1 to 9 that you would like to take: " << "\n";
+			cin >> game;
+			cout << game;
+			/*int position;
+	cout << "Mark the position 1 to 9 that you would like to take: " << "\n";
 					cin >> position;
 					game.mark_board(position);
-					game.display_board();
+					//ostream;
+					//game.display_board();*/
 					winner = game.game_over();
-				}
-			catch (Error e)
-				{
-					cout << e.get_message() << "\n";
-				}
+			
 				
 				//cout << "Press p or P to continue to another turn";
 				//cin >> choice;
 		} while (winner == false);
+		
+		manager.save_game(game);
+		cout << game;
+		manager.get_winner_total(x, o, t);
 		cout << "The winner is: " << game.get_winner() << "\n";
+		
 	//} while (choice == "P" || choice == "p");
-		
-		
 		cout << "Press Y or y to continue to another game " << "\n";
 		cin >> option;
 	}while (option == 'Y' || option == 'y');
+
+	cout << manager;
+
+
+	return 0;
 
 
 }
@@ -65,6 +76,7 @@ int main()
 
 
 
+/*
 //{
 
 			//cout << "Enter the position you want: " << "\n";
@@ -72,14 +84,12 @@ int main()
 	//}
 
 
-	//auto menu = 'Y';*/
+	//auto menu = 'Y';
 
 
 
 
 
-
-/*
 
 	while (first_player == "X", "O")
 	{

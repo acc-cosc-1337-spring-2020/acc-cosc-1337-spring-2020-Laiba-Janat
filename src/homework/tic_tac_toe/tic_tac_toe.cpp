@@ -2,7 +2,7 @@
 #include "tic_tac_toe.h"
 #include<iostream>
 
-using std::cout;
+using std::cout; using std::cin;
 
 bool TicTacToe::game_over()
 {
@@ -50,27 +50,31 @@ void TicTacToe::mark_board(int position)
 		throw Error("Position must be 1 to 9.");
 
 	}
-	
-	if (player == "") 
+
+	if (player == "")
 	{
 		throw Error("Must start game first.");
 	}
 
 
 	pegs[position - 1] = player;
-	set_next_player();
+	if (game_over()== false)
+	{
+		set_next_player();
+	}
+	//set_next_player();
 	
 	
 	
 }
 
-void TicTacToe::display_board() const
+/*void TicTacToe::display_board() const
 {
 	for (int i = 0; i < 9; i += 3)
 	{
 		cout << pegs[i] << "|" << pegs[i + 1] << "|" << pegs[i + 2] << "|" << "\n";
 	}
-}
+}*/
 
 void TicTacToe::set_next_player()
 {
@@ -204,4 +208,36 @@ void TicTacToe::set_winner()
 	}
 
 }
+
+std::ostream & operator<<(std::ostream & out, const TicTacToe & d)
+{
+	for (int i = 0; i < 9; i += 3)
+	{
+		out << d.pegs[i] << "|" << d.pegs[i + 1] << "|" << d.pegs[i + 2] << "|" << "\n";
+	}
+
+	return out;
+
+	// TODO: insert return statement here
+}
+
+std::istream & operator>>(std::istream & in,  TicTacToe & p)
+{
+	//TicTacToe game;
+	try
+	{
+	int position;
+	cout << "Mark the position 1 to 9 that you would like to take: " << "\n";
+	in >> position;
+	p.mark_board(position);
+	}
+	catch (Error e)
+	{
+		cout << e.get_message() << "\n";
+	}
+	return in;
+
+	// TODO: insert return statement here
+}
+
 

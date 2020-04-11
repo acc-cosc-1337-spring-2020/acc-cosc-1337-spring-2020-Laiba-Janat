@@ -2,7 +2,11 @@
 #include <string>
 #include<iostream>
 #include<vector>
+#include<iostream>
 
+
+#ifndef TICTACTOE_H //Header Guard
+#define TICTACTOE_H
 class TicTacToe
 {
 
@@ -11,9 +15,10 @@ public:
 	void start_game(std::string first_player);
 	void mark_board(int position);
 	std::string const get_player() { return player; }
-	std::string get_winner() { return winner; }
-	void display_board() const;
-
+	std::string  get_winner()const { return winner; }
+	//void display_board() const;
+	friend std::ostream& operator<<(std::ostream& out, const TicTacToe& d);
+	friend std::istream& operator>>(std::istream& in,  TicTacToe& p );
 private:
 	void set_next_player();
 	bool check_board_full();
@@ -26,11 +31,17 @@ private:
 	std::vector<std::string> pegs{9, " "};
 	std::string winner;
 };
+#endif
+
 /*bool_check_column_win();
 	bool_check_row_win();
 	bool_check_diagonal_win();
 	void set_winner();*/
 
+
+
+#ifndef ERROR_H //Header Guard
+#define ERROR_H
 class Error
 {
 public:
@@ -41,6 +52,7 @@ public:
 private:
 	std::string message;
 };
+#endif
 
 
 
