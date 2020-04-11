@@ -7,20 +7,24 @@ using std::cout; using std::cin;
 
 int main()
 {
-	std::string first_player = "Z";
 	auto option = 'Y';
-	//std::string choice = "p";
-	bool winner;
-	int x;
-	int o;
-	int t;
-
-
-	TicTacToe game;
-	
 	TicTacToeManager manager;
-
 	do {
+		
+
+		std::string first_player = "Z";
+		
+		//std::string choice = "p";
+		bool winner = true;
+		int x;
+		int o;
+		int t;
+
+
+		TicTacToe game;
+
+		
+		
 
 		while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"))
 		{
@@ -36,6 +40,7 @@ int main()
 			}
 
 		}
+		
 		do {
 			cin >> game;
 			cout << game;

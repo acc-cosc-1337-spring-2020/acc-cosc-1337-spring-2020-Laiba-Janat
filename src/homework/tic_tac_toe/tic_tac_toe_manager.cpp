@@ -45,14 +45,17 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 	{
 		out << "History of All Games Played: \n";
 		out << game;
-		game.get_winner();
+		std::string w = game.get_winner();
+		out << w;
+
 		//manager.update_winner_count;
 
 		//out << " X wins: " << manager.x_win <<" \n";
 		//out << " O wins: " << manager.o_win << " \n";
 		//out << "Ties: " << manager.tie << " \n";
 		
-		return out;
+		
 	}
+	return out;
 	// TODO: insert return statement here
 }
