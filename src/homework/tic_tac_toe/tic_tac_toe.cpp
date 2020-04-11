@@ -227,9 +227,12 @@ std::istream & operator>>(std::istream & in,  TicTacToe & p)
 	try
 	{
 	int position;
+	cout << "\n";
 	cout << "Mark the position 1 to 9 that you would like to take: " << "\n";
 	in >> position;
+	cout << "\n";
 	p.mark_board(position);
+	cout << "\n";
 	}
 	catch (Error e)
 	{

@@ -58,8 +58,11 @@ int main()
 		} while (winner == false);
 		
 		manager.save_game(game);
+		cout << "\n";
 		cout << game;
+		cout << "\n";
 		manager.get_winner_total(x, o, t);
+		cout << "\n";
 		cout << "The winner is player " << game.get_winner() << "\n";
 		
 	//} while (choice == "P" || choice == "p");
@@ -69,6 +72,7 @@ int main()
 	}while (option == 'Y' || option == 'y');
 
 	cout << manager;
+
 
 
 	return 0;
