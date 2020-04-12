@@ -243,6 +243,8 @@ TEST_CASE("Test win diagonally top left")// "[X wins row]"
 	game.mark_board(9);//X
 		//X wins
 	REQUIRE(game.game_over() == true);
+
+	
 }
 
 
@@ -310,5 +312,5 @@ TEST_CASE("Test for  winner(new) ")
 	game.mark_board(9);//X
 	REQUIRE(game.game_over() == true);
 
-	REQUIRE(game.get_winner() == "X");
+	
 }
