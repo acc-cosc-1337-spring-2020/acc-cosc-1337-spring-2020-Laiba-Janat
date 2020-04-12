@@ -244,7 +244,8 @@ TEST_CASE("Test win diagonally top left")// "[X wins row]"
 		//X wins
 	REQUIRE(game.game_over() == true);
 
-	
+	REQUIRE(game.get_winner() == "X");//Hw 08 change
+	// I did not understand what professor expected for test cases so i did this
 }
 
 
@@ -294,23 +295,8 @@ TEST_CASE("Test for no winner ")
 	game.mark_board(7);//X
 	REQUIRE(game.game_over() == true);
 }
-// I did not understand what professor expected for test cases so i did this
-TEST_CASE("Test for  winner(new) ")
-{
-	TicTacToe game;
-	game.start_game("X");
 
-	REQUIRE(game.game_over() == false);
-	game.mark_board(1);//X        
-	REQUIRE(game.game_over() == false);
-	game.mark_board(2);//O          
-	REQUIRE(game.game_over() == false);
-	game.mark_board(5);//X          
-	REQUIRE(game.game_over() == false);
-	game.mark_board(3);//O 
-	REQUIRE(game.game_over() == false);
-	game.mark_board(9);//X
-	REQUIRE(game.game_over() == true);
+
 
 	
 }
