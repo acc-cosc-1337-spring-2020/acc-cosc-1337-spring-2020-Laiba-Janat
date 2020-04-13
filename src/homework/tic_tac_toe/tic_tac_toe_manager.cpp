@@ -45,10 +45,10 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 
 	for(auto game : manager.games )
 	{
-		
+		out << "\n";
 		out << game;
 		std::string w = game.get_winner();
-		out << "\nThe winner is:  "<< w<<"\n";
+		out << "\nThe winner is:  "<< w <<"\n";
 
 		//manager.update_winner_count;
 
