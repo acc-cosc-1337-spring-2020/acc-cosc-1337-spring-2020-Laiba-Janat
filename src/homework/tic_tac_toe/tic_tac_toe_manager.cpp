@@ -4,8 +4,8 @@
 
 //cpp
 using std::cout;
-
-void TicTacToeManager::save_game(const TicTacToe b)
+//void TicTacToeManager::save_game(const TicTacToe b)why const removed?
+void TicTacToeManager::save_game(TicTacToe b)
 {
 	games.push_back(b);
 	update_winner_count(b.get_winner());
@@ -47,15 +47,9 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 	{
 		out << "\n";
 		out << game;
-		std::string w = game.get_winner();
+		std::string w = game.get().get_winner();//what is get() why its used?
 		out << "\nThe winner is:  "<< w <<"\n";
 
-		//manager.update_winner_count;
-
-		//out << " X wins: " << manager.x_win <<" \n";
-		//out << " O wins: " << manager.o_win << " \n";
-		//out << "Ties: " << manager.tie << " \n";
-		
 		
 	}
 	return out;
