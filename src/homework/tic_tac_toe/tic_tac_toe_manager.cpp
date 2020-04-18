@@ -1,5 +1,5 @@
 #include "tic_tac_toe_manager.h"
-#include "tic_tac_toe.h"
+//#include "tic_tac_toe.h"
 #include<iostream>
 
 //cpp
@@ -42,16 +42,18 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 {
 	//TicTacToeManager manager;
 	out << "History of All Games Played: \n";
+	
+		for (auto game : manager.games)//&game?
+		{
+			out << "\n";
+			out << game;
+			std::string w = game.get().get_winner();//what is get() why its used?
+			out << "\nThe winner is:  " << w << "\n";
 
-	for(auto game : manager.games )
-	{
-		out << "\n";
-		out << game;
-		std::string w = game.get().get_winner();//what is get() why its used?
-		out << "\nThe winner is:  "<< w <<"\n";
+		}
 
-		
-	}
+
+	
 	return out;
 	// TODO: insert return statement here
 }

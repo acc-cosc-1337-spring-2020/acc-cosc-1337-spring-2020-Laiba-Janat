@@ -11,9 +11,10 @@ int main()
 {
 	auto option = 'Y';
 	TicTacToeManager manager;
+	
 	do {
 		
-
+		
 		std::string first_player = "Z";
 		
 		//std::string choice = "p";
@@ -25,7 +26,7 @@ int main()
 		std::vector<std::reference_wrapper<TicTacToe>>games;
 
 		cout << "\tMenu\t\n";
-		cout << " 1. Enter 3 to play 3x3 Tic Tac Toe\n 2.Enter 4 to play 4x4 Tic Tac Toe\n";
+		cout << "  1.Enter 3 to play 3x3 Tic Tac Toe\n  2.Enter 4 to play 4x4 Tic Tac Toe\n";
 		cin >> GT;
 		if (GT == 3) 
 		{

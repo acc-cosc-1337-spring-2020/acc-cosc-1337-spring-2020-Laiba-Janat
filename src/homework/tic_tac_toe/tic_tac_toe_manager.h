@@ -6,7 +6,7 @@
 
 #ifndef TICTACTOEMANAGER_H //Header Guard
 #define TICTACTOEMANAGER_H
-class TicTacToeManager:public TicTacToe{
+class TicTacToeManager{//:public TicTacToe{
 public:
 	//void save_game(const TicTacToe b);why const removed
 	void save_game(TicTacToe b);
