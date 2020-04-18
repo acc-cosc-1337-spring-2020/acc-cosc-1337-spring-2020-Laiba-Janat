@@ -5,7 +5,8 @@
 #include<vector>
 
 using std::cout; using std::cin;
-
+//i know we use back() to get last game isnstance 
+//but cant figure out proper syntax to incorporate it into fxn and im feeling to sick to continue
 
 int main()
 {
@@ -32,12 +33,14 @@ int main()
 		{
 			TicTacToe3 game3;
 			games.push_back(game3);
+			//int g = games.back();
 			while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"))
 			{
 				try
 				{
 					cout << "First Player enter X or O ";
 					cin >> first_player;
+					//g.start_game(first_player);
 					game3.start_game(first_player);
 				}
 				catch (Error e)
