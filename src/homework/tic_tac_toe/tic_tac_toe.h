@@ -11,7 +11,7 @@ class TicTacToe
 {
 
 public:
-	TicTacToe(int s) : pegs(s*s,""){}
+	TicTacToe(int s) : pegs(s*s," "){}
 	bool game_over();
 	void start_game(std::string first_player);
 	void mark_board(int position);

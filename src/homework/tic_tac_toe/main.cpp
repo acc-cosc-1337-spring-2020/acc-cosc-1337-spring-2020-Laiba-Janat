@@ -1,141 +1,79 @@
-#include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
-#include<vector>
+#include<iostream>
+#include<functional>
 
-using std::cout; using std::cin;
-//i know we use back() to get last game isnstance 
-//but cant figure out proper syntax to incorporate it into fxn and im feeling to sick to continue
+using std::cout; using std::cin; using std::string;
 
 int main()
 {
-	auto option = 'Y';
 	TicTacToeManager manager;
-	
-	do {
-		
-		
-		std::string first_player = "Z";
-		
-		//std::string choice = "p";
-		bool winner = true;
-		int x;
-		int o;
-		int t;
-		int GT ;
-		std::vector<std::reference_wrapper<TicTacToe>>games;
+	string cont;
+	std::vector<std::reference_wrapper<TicTacToe>> games;
 
-		cout << "\tMenu\t\n";
-		cout << "  1.Enter 3 to play 3x3 Tic Tac Toe\n  2.Enter 4 to play 4x4 Tic Tac Toe\n";
-		cin >> GT;
-		if (GT == 3) 
+	do
+	{
+		int game_type;
+		cout << "\nTictactoe 3 or 4?";
+		cin >> game_type;
+		TicTacToe3 game3;
+		TicTacToe4 game4;
+
+		if (game_type == 3)
 		{
-			TicTacToe3 game3;
 			games.push_back(game3);
-			//int g = games.back();
-			while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"))
-			{
-				try
-				{
-					cout << "First Player enter X or O ";
-					cin >> first_player;
-					//g.start_game(first_player);
-					game3.start_game(first_player);
-				}
-				catch (Error e)
-				{
-					cout << e.get_message() << "\n";
-				}
-			}
-			do 
-			{
-				cin >> game3;
-				cout << game3;
-					/*int position;
-				cout << "Mark the position 1 to 9 that you would like to take: " << "\n";
-					cin >> position;
-					game.mark_board(position);
-					//ostream;
-					//game.display_board();*/
-				winner = game3.game_over();
-			
-				
-				//cout << "Press p or P to continue to another turn";
-				//cin >> choice;
-			} while (winner == false);
-
-
-			manager.save_game(game3);
-			cout << "\n";
-			cout << game3;
-			cout << "\n";
-			manager.get_winner_total(x, o, t);
-			cout << "\n";
-			cout << "The winner is player " << game3.get_winner() << "\n";
-
-
-
-
 		}
-		else if (GT == 4)
+		else if (game_type == 4)
 		{
-			TicTacToe4 game4;
 			games.push_back(game4);
-			while (!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"))
-			{
-				try
-				{
-					cout << "First Player enter X or O ";
-					cin >> first_player;
-					game4.start_game(first_player);
-				}
-				catch (Error e)
-				{
-					cout << e.get_message() << "\n";
-				}
+		}
 
+		std::reference_wrapper<TicTacToe> game = games.back();
+
+		string player = "Y";
+
+		while (!(player == "O" || player == "X"))
+		{
+			try
+			{
+				cout << "Enter player: ";
+				cin >> player;
+
+				game.get().start_game(player);
+			}
+			catch (Error e)
+			{
+				cout << e.get_message();
+			}
+		}
+
+		int choice = 1;
+
+		do
+		{
+			try
+			{
+				cin >> game.get();
+				cout << game.get();
+			}
+			catch (Error e)
+			{
+				cout << e.get_message();
 			}
 
-			do {
-				
-				cin >> game4;
-				cout << game4;
-				winner = game4.game_over();
+		} while (!game.get().game_over());
 
-			} while (winner == false);
+		manager.save_game(game.get());
 
+		cout << "\nWinner: " << game.get().get_winner() << "\n";
 
-			manager.save_game(game4);
-			cout << "\n";
-			cout << game4;
-			cout << "\n";
-			manager.get_winner_total(x, o, t);
-			cout << "\n";
-			cout << "The winner is player " << game4.get_winner() << "\n";
+		cout << "Enter Y to play again: ";
+		cin >> cont;
 
-
-		}
-		
-		
-	//} while (choice == "P" || choice == "p");
-		cout << "Press Y or y to continue to another game " << "\n";
-		cin >> option;
-		cout << "\n";
-	}while (option == 'Y' || option == 'y');
+	} while (cont == "Y");
 
 	cout << manager;
 
-
-
 	return 0;
-
-
 }
-	
-
-
-
-
-
-
