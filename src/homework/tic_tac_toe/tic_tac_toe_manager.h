@@ -2,6 +2,7 @@
 #include<iostream>
 #include "tic_tac_toe.h"
 #include<memory>
+//#include<functional>
 
 
 #ifndef TICTACTOEMANAGER_H //Header Guard
@@ -13,7 +14,8 @@ public:
 	friend std::ostream& operator<<(std::ostream & out, const TicTacToeManager& manager);
 	void get_winner_total(int& x,int& o, int& t);
 private:
-	std::vector<std::reference_wrapper<TicTacToe>>games;
+	std::vector<std::unique_ptr<TicTacToe>>games;
+	//std::vector<std::reference_wrapper<TicTacToe>>games;
 	int x_win{0};
 	int o_win{0};
 	int tie{0};

@@ -39,6 +39,7 @@ TEST_CASE("Test start game accepts only X or O")
 TEST_CASE("Test start accepts only X or O for game4")
 {
 	TicTacToe4 game;
+
 	REQUIRE_THROWS_AS(game.start_game("A"), Error);
 
 

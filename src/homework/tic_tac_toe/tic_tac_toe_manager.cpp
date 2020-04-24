@@ -5,9 +5,11 @@
 //cpp
 using std::cout;
 //void TicTacToeManager::save_game(const TicTacToe b)why const removed?
-void TicTacToeManager::save_game(TicTacToe b)
+//void TicTacToeManager::save_game(TicTacToe& b)
+void TicTacToeManager::save_game(unique_ptr<TicTacToe>& b)
 {
-	games.push_back(b);
+	//games.push_back(b);
+	std::move(game)
 	update_winner_count(b.get_winner());
 
 }
