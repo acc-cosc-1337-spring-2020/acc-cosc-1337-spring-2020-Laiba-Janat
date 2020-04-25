@@ -235,7 +235,7 @@ std::ostream & operator<<(std::ostream & out, const TicTacToe & d)
 
 std::istream & operator>>(std::istream & in,  TicTacToe & p)
 {
-	//TicTacToe game;
+	
 	try
 	{
 		if (p.pegs.size() == 9)
