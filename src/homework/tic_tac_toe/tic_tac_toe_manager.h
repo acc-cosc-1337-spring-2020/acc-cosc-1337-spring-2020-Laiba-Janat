@@ -4,13 +4,15 @@
 #include<memory>
 //#include<functional>
 
+using std::unique_ptr; using std::make_unique;
 
 #ifndef TICTACTOEMANAGER_H //Header Guard
 #define TICTACTOEMANAGER_H
 class TicTacToeManager{//:public TicTacToe{
 public:
 	//void save_game(const TicTacToe b);why const removed
-	void save_game(TicTacToe b);
+
+	void save_game(unique_ptr<TicTacToe>& game);
 	friend std::ostream& operator<<(std::ostream & out, const TicTacToeManager& manager);
 	void get_winner_total(int& x,int& o, int& t);
 private:

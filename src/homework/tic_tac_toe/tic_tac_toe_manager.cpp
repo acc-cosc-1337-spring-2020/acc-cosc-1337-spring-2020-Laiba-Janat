@@ -6,11 +6,11 @@
 using std::cout;
 //void TicTacToeManager::save_game(const TicTacToe b)why const removed?
 //void TicTacToeManager::save_game(TicTacToe& b)
-void TicTacToeManager::save_game(unique_ptr<TicTacToe>& b)
+void TicTacToeManager::save_game(unique_ptr<TicTacToe>& game)
 {
-	//games.push_back(b);
-	std::move(game)
-	update_winner_count(b.get_winner());
+	games.push_back(std::move(game));
+	//std::move(game)
+	update_winner_count(game->get_winner());
 
 }
 
@@ -45,11 +45,11 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 	//TicTacToeManager manager;
 	out << "History of All Games Played: \n";
 	
-		for (auto game : manager.games)//&game?
+		for (auto &game : manager.games )//&game?
 		{
 			out << "\n";
 			out << game;
-			std::string w = game.get().get_winner();//what is get() why its used?
+			std::string w = game->get_winner();//what is get() why its used?
 			out << "\nThe winner is:  " << w << "\n";
 
 		}
@@ -59,3 +59,12 @@ std::ostream & operator<<(std::ostream & out, const TicTacToeManager & manager)
 	return out;
 	// TODO: insert return statement here
 }
+/*for (auto game : manager.games)//&game?
+		{
+			out << "\n";
+			out << game;
+			std::string w = game.get().get_winner();//what is get() why its used?
+			out << "\nThe winner is:  " << w << "\n";
+
+		}
+*/

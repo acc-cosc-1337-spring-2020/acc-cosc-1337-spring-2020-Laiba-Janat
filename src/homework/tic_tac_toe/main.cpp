@@ -2,20 +2,26 @@
 #include "tic_tac_toe_3.h"
 #include "tic_tac_toe_4.h"
 #include<iostream>
-#include<functional>
+//#include<functional>
+#include<memory>
 //#include <vector>
 
 using std::cout; using std::cin; using std::string;
+using std::unique_ptr; using std::make_unique;
 
 int main()
 {
-	TicTacToeManager manager;
+	unique_ptr<TicTacToeManager> manager= make_unique<TicTacToeManager>();
+	unique_ptr<TicTacToe> TTT = make_unique<TicTacToe>();
 	auto option = 'Y';
 	int x;
 	int o;
 	int t;
 	//string cont;
-	std::vector<std::reference_wrapper<TicTacToe>> games;
+	std::vector<unique_ptr<TicTacToeManager>> games;
+
+	//games.push_back(std::move(manager));
+	//std::vector<std::reference_wrapper<TicTacToe>> games;
 
 	do
 	{
@@ -23,22 +29,30 @@ int main()
 		cout << "\tMenu\t\n";
 		cout << "  1.Enter 3 to play 3x3 Tic Tac Toe\n  2.Enter 4 to play 4x4 Tic Tac Toe\n";
 		cin >> game_type;
-		TicTacToe3 game3;
-		TicTacToe4 game4;
+		unique_ptr<TicTacToeManager> game;
+		//unique_ptr<TicTacToeManager> game;
+		//TicTacToe3 game3;
+		//TicTacToe4 game4;
 
 		if (game_type == 3)
 		{
-			//TicTacToe3 game3;
-			games.push_back(game3);
+			//TicTacToe3 game3; //games.push_back(game3);
+			//game = make_unique<TicTacToe3>();
+			unique_ptr<TicTacToe> three =  make_unique<TicTacToe3>();
+			games.push_back(std::move(game));
+			
 		}
 		else if (game_type == 4)
 		{
-			//TicTacToe4 game4;
-			games.push_back(game4);
+			unique_ptr<TicTacToe> four = make_unique<TicTacToe4>();
+			games.push_back(std::move(game));
+			//game = make_unique<TicTacToe4>();
+			//TicTacToe4 game4;//games.push_back(game4);
 		}
+		//games.push_back(std::move(game));
 
-		std::reference_wrapper<TicTacToe> game = games.back();
-
+		//std::unique_ptr<TicTacToe> game ;
+		//std::reference_wrapper<TicTacToe> game = games.back();
 		string player = "Z";
 
 		//while (!(player == "O" || player == "X"))
@@ -48,20 +62,25 @@ int main()
 			{
 				cout << "First Player enter X or O ";
 				cin >> player;
-				game.get().start_game(player);
+				TTT -> start_game(player);
+				//game.get().start_game(player);
 			}
 			catch (Error e)
 			{
 				cout << e.get_message() << "\n";
 			}
 		}
-		int choice = 1;
+		//int choice = 1;
 		do 
 		{
 			try
 			{
-				cin >> game.get();
-				cout << game.get();
+				
+				cin >> *game;
+				cout << *game;
+
+				//cin >> game.get();
+				//cout << game.get();
 				//game.get().game_over();
 			}
 			catch(Error e)
@@ -70,20 +89,25 @@ int main()
 				
 			}
 			
-		} while(!(game.get().game_over()));
-		manager.save_game(game.get());
+		} while(!(TTT -> game_over()));
+
+
+
+		//} while(!(game.get().game_over()));
+		//manager->save_game(game);
+		//manager->save_game(game.get());
 		cout << "\n";
-		cout << game.get();
+		//cout << *game;
+		//cout << game.get();
 		cout << "\n";
-		manager.get_winner_total(x, o, t);
+		manager->get_winner_total(x, o, t);
 
 		cout << "\n";
 
 		//cout << "The winner is player " << game.get().get_winner() << "\n";
+		//cout << "\nWinner: " << game.get().get_winner() << "\n";
 
-		manager.save_game(game.get());
-
-		cout << "\nWinner: " << game.get().get_winner() << "\n";
+		//cout << "\nWinner: " << game->get_winner() << "\n";
 
 		cout << "Press Y or y to continue to another game " << "\n";
 
@@ -93,7 +117,7 @@ int main()
 
 	} while(option == 'Y' || option == 'y');
 
-	cout << manager;
+	cout << *manager;
 
 	return 0;
 }
