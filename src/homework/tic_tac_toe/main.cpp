@@ -19,7 +19,6 @@ int main()
 	int t;
 	
 	
-
 	
 	do
 	{
