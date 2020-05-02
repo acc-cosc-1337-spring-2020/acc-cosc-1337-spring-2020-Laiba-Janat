@@ -10,8 +10,8 @@ using std::unique_ptr; using std::make_unique;
 #define TICTACTOEMANAGER_H
 class TicTacToeManager{//:public TicTacToe{
 public:
-	
-
+	TicTacToeManager() = default ;
+	get_games(const std::vector<std::unique_ptr<TicTacToeData>>& games)
 	void save_game(unique_ptr<TicTacToe>& game);
 	friend std::ostream& operator<<(std::ostream & out, const TicTacToeManager& manager);
 	void get_winner_total(int& x,int& o, int& t);
